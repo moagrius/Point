@@ -67,6 +67,18 @@
 		var y = this.y - v.y;
 		return Math.sqrt(x * x + y * y);
 	};
+
+	/**
+	* Divides the coordinates of another point (divisor) from the coordinates of this point (numerator) to create a new point.
+	* @function
+	* @param {Point} / {Number} v The divisor.
+	* @returns Point
+	*/
+	Point.prototype.divide = function(v){
+		if (v.x == undefined)
+			v = new Point(v,v);
+		return new Point(this.x / v.x, this.y / v.y);
+	};
 	
 	/**
 	* Determines whether two points are equal. Two points are equal if they have the same x and y values.
@@ -96,6 +108,18 @@
 	*/
 	Point.prototype.length = function(){
 		return Math.sqrt(this.x * this.x + this.y * this.y);
+	};
+
+	/**
+	* Multiplies the coordinates of another point with the coordinates of this point to create a new point.
+	* @function
+	* @param {Point} / {Number} v The multiplier.
+	* @returns Point
+	*/
+	Point.prototype.multiply = function(v){
+		if (v.x == undefined)
+			v = new Point(v,v);
+		return new Point(this.x * v.x, this.y * v.y);
 	};
 	
 	/**
